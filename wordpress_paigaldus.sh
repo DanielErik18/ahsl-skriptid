@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Skripti tuleb jooksutada root kasutajana
+#Skripti tuleb jooksutada root kasutajana, kasuta käsku su -
 
 #MYSQL edukaks installiks peaks eelnevalt tegema commandid, kui teete ise peate panema ette ###
 

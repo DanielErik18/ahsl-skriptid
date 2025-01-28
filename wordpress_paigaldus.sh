@@ -2,17 +2,17 @@
 
 #Skripti tuleb jooksutada root kasutajana
 
-#MYSQL edukaks installiks peaks eelnevalt tegema commandid, värskeks installiks eemaldage eest #
+#MYSQL edukaks installiks peaks eelnevalt tegema commandid, kui teete ise peate panema ette ###
 
-# wget https://dev.mysql.com/get/mysql-apt-config_0.8.20-1_all.deb
-# apt install gnupg -y
-# dpkg -i mysql-apt-config_0.8.20-1_all.deb
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.20-1_all.deb
+apt install gnupg -y
+dpkg -i mysql-apt-config_0.8.20-1_all.deb
 
-# apt-key del A4A9 4068 76FC BD3C 4567  70C8 8C71 8D3B 5072 E1F5
-# apt-key adv --keyserver pgp.mit.edu --recv-keys B7B3B788A8D3785C
+apt-key del A4A9 4068 76FC BD3C 4567  70C8 8C71 8D3B 5072 E1F5
+apt-key adv --keyserver pgp.mit.edu --recv-keys B7B3B788A8D3785C
 
-# apt update
-# apt upgrade
+apt update
+apt upgrade
 
 
 #Funktsioon teenuste kontrollimiseks ja vajadusel installimiseks.
@@ -58,10 +58,10 @@ DB_NAME="wordpress"
 DB_USER="wp_user"
 DB_PASS="qwerty"
 
-mysql -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
-mysql -e "CREATE USER IF NOT EXISTS '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS';"
-mysql -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost';"
-mysql -e "FLUSH PRIVILEGES;"
+mysql --user='root' --password="qwerty" -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
+mysql --user='root' --password="qwerty" -e "CREATE USER IF NOT EXISTS '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS';"
+mysql --user='root' --password="qwerty" -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost';"
+mysql --user='root' --password="qwerty" -e "FLUSH PRIVILEGES;"
 
 #Wordpressi install
 cd /var/www/html
